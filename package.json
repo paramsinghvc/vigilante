@@ -1,6 +1,6 @@
 {
   "name": "@mollycule/vigilante",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React hook to keep a watch on the changing props of a React component/hook.",
   "author": "paramsinghvc",
   "license": "MIT",
