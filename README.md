@@ -21,7 +21,7 @@
   <h3 align="center">useVigilante React Hook</h3>
 
   <p align="center">
-    Making redux easy to use with React Hooks Api
+    React hook to keep a watch on the changing props or state variables of a React component/hook.
     <br />
     <a href="https://www.npmjs.com/package/@mollycule/vigilante"><strong>Explore the docs »</strong></a>
     <br />
