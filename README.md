@@ -1,6 +1,6 @@
 # @mollycule/vigilante
 
-> A React hook to keep a watch on the changing props of a React component/hook.
+> A React hook to keep a watch on the changing props or state variables of a React component/hook.
 
 [![NPM](https://img.shields.io/npm/v/@mollycule/vigilante.svg)](https://www.npmjs.com/package/@mollycule/vigilante) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
