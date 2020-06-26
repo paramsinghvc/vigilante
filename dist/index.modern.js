@@ -1,40 +1,41 @@
 import { useRef, useEffect } from 'react';
 
-const componentNameStyle = `color: #9c88ff`;
-const keyNameStyle = `color: #fd79a8; font-weight: bold`;
-const prevValStyle = `color: #F79F1F; font-weight: bold`;
-const newValStyle = `color: #38ada9; font-weight: bold`;
+var componentNameStyle = "color: #9c88ff";
+var keyNameStyle = "color: #fd79a8; font-weight: bold";
+var prevValStyle = "color: #F79F1F; font-weight: bold";
+var newValStyle = "color: #38ada9; font-weight: bold";
 
 function logVariable(keyName, prevVal, newVal) {
-  console.group(`%c${keyName}`, keyNameStyle);
+  console.group("%c" + keyName, keyNameStyle);
   console.info('%cPrevious Value:', prevValStyle, prevVal);
   console.info('%cNew Value: ', newValStyle, newVal);
   console.groupEnd();
 }
 
 function logComponentGroup(componentName, changedVariables) {
-  console.group(`%c${componentName}`, componentNameStyle);
-  Object.entries(changedVariables).forEach(([key, {
-    prevVal,
-    newVal
-  }]) => {
+  console.group("%c" + componentName, componentNameStyle);
+  Object.entries(changedVariables).forEach(function (_ref) {
+    var key = _ref[0],
+        _ref$ = _ref[1],
+        prevVal = _ref$.prevVal,
+        newVal = _ref$.newVal;
     logVariable(key, prevVal, newVal);
   });
   console.groupEnd();
 }
 
 function useVigilante(componentName, variables) {
-  const variablesRef = useRef(variables);
-  useEffect(() => {
-    const prevVariablesRef = variablesRef.current;
-    const changedVariables = Object.keys(variables).reduce((acc, key) => {
-      const prevVal = prevVariablesRef[key];
-      const newVal = variables[key];
+  var variablesRef = useRef(variables);
+  useEffect(function () {
+    var prevVariablesRef = variablesRef.current;
+    var changedVariables = Object.keys(variables).reduce(function (acc, key) {
+      var prevVal = prevVariablesRef[key];
+      var newVal = variables[key];
 
       if (!Object.is(prevVal, newVal)) {
         acc[key] = {
-          prevVal,
-          newVal
+          prevVal: prevVal,
+          newVal: newVal
         };
         prevVariablesRef[key] = newVal;
       }
@@ -42,7 +43,7 @@ function useVigilante(componentName, variables) {
       return acc;
     }, {});
     logComponentGroup(componentName, changedVariables);
-  }, [...Object.values(variables)]);
+  }, [].concat(Object.values(variables)));
 }
 
 export default useVigilante;
