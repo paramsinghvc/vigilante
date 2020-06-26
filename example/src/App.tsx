@@ -1,10 +1,9 @@
 import React from 'react'
 
-import { ExampleComponent } from '@mollycule/vigilante'
-import '@mollycule/vigilante/dist/index.css'
+import Weather from './components/Weather'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <Weather />
 }
 
 export default App
